@@ -97,15 +97,19 @@ function App() {
   };
 
   const handleEdit = (product) => {
-    setEditing(product);
-    setFormData({
-      name: product.name,
-      category: product.category,
-      price: product.price,
-      image: product.image,
-      stock: product.stock,
-    });
-  };
+  setEditing(product);
+
+  setFormData({
+    name: product.name,
+    category: product.category,
+    price: product.price,
+    image: product.image,
+    stock: product.stock,
+  });
+
+  // 👇 thêm dòng này
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
   const handleCancelEdit = () => {
     setEditing(null);

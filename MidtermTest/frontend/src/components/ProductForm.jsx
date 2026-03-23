@@ -75,7 +75,7 @@ function ProductForm({ formData, setFormData, onSubmit, editing, onCancel }) {
 
           {editing && (
             <button className="btn btn-secondary" onClick={onCancel}>
-              Cancel
+              Back to Add
             </button>
           )}
         </div>
