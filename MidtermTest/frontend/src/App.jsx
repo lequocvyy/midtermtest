@@ -97,19 +97,17 @@ function App() {
   };
 
   const handleEdit = (product) => {
-  setEditing(product);
+    setEditing(product);
+    setFormData({
+      name: product.name,
+      category: product.category,
+      price: product.price,
+      image: product.image,
+      stock: product.stock,
+    });
 
-  setFormData({
-    name: product.name,
-    category: product.category,
-    price: product.price,
-    image: product.image,
-    stock: product.stock,
-  });
-
-  // 👇 thêm dòng này
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const handleCancelEdit = () => {
     setEditing(null);
@@ -129,11 +127,11 @@ function App() {
     fetchProducts();
   };
 
+  const categories = [...new Set(products.map((p) => p.category))];
+
   return (
     <div className="app-wrapper">
       <div className="container py-4">
-        
-
         {error && <div className="alert alert-danger">{error}</div>}
 
         <SearchFilter
@@ -141,17 +139,18 @@ function App() {
           setSearch={setSearch}
           category={category}
           setCategory={setCategory}
+          categories={categories}
           onSearch={handleSearch}
           onReset={handleReset}
         />
 
         <ProductForm
-  formData={formData}
-  setFormData={setFormData}
-  onSubmit={handleSubmit}
-  editing={editing}
-  onCancel={handleCancelEdit}
-/>
+          formData={formData}
+          setFormData={setFormData}
+          onSubmit={handleSubmit}
+          editing={editing}
+          onCancel={handleCancelEdit}
+        />
 
         {loading ? (
           <Loading />

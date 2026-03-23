@@ -3,6 +3,7 @@ function SearchFilter({
   setSearch,
   category,
   setCategory,
+  categories,
   onSearch,
   onReset,
 }) {
@@ -27,8 +28,11 @@ function SearchFilter({
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">All Categories</option>
-              <option value="Phone">Phone</option>
-              <option value="Laptop">Laptop</option>
+              {categories.map((cat, index) => (
+                <option key={index} value={cat}>
+                  {cat}
+                </option>
+              ))}
             </select>
           </div>
 

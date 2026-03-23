@@ -29,3 +29,29 @@
   max-width: 500px;
   border-radius: 18px;
 }
+.product-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.stock {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.stock.low {
+  color: red;
+}

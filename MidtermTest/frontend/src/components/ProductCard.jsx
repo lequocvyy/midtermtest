@@ -2,30 +2,40 @@ function ProductCard({ product, onView, onEdit, onDelete }) {
   if (!product) return null;
 
   return (
-    <div className="col-md-6 col-lg-4 mb-4">
-      <div className="card h-100 shadow-sm">
+    <div className="product-card mb-3">
+      <div className="d-flex">
+        {/* IMAGE */}
         <img
           src={product.image}
-          className="card-img-top"
           alt={product.name}
-          style={{ height: "220px", objectFit: "cover" }}
+          className="product-img"
         />
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title">{product.name}</h5>
-          <p className="mb-1"><strong>Price:</strong> ${product.price}</p>
-          <p className="mb-1"><strong>Category:</strong> {product.category}</p>
-          <p className="mb-3"><strong>Stock:</strong> {product.stock}</p>
 
-          <div className="mt-auto d-flex gap-2 flex-wrap">
-            <button className="btn btn-outline-primary btn-sm" onClick={() => onView(product)}>
-              View
-            </button>
-            <button className="btn btn-outline-warning btn-sm" onClick={() => onEdit(product)}>
-              Edit
-            </button>
-            <button className="btn btn-outline-danger btn-sm" onClick={() => onDelete(product.id)}>
-              Delete
-            </button>
+        {/* CONTENT */}
+        <div className="flex-grow-1 p-3 d-flex flex-column">
+          <div className="d-flex justify-content-between align-items-start">
+            <h5 className="mb-1">{product.name}</h5>
+            <span className="badge bg-dark">{product.category}</span>
+          </div>
+
+          <p className="text-muted mb-2">${product.price}</p>
+
+          <div className="d-flex justify-content-between align-items-center mt-auto">
+            <span className={`stock ${product.stock < 5 ? "low" : ""}`}>
+              Stock: {product.stock}
+            </span>
+
+            <div className="d-flex gap-2">
+              <button className="btn btn-sm btn-outline-primary" onClick={() => onView(product)}>
+                View
+              </button>
+              <button className="btn btn-sm btn-outline-warning" onClick={() => onEdit(product)}>
+                Edit
+              </button>
+              <button className="btn btn-sm btn-outline-danger" onClick={() => onDelete(product.id)}>
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       </div>
