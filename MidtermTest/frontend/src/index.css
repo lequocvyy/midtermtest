@@ -1,0 +1,31 @@
+.app-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fbff, #eef3f8);
+}
+
+.card {
+  border: none;
+  border-radius: 16px;
+}
+
+.card-img-top {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.custom-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.custom-modal {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 18px;
+}
